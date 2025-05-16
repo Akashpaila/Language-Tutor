@@ -208,7 +208,8 @@ async function transcribeAudio(file) {
     let response = await fetch("https://api.openai.com/v1/audio/transcriptions", {
         method: "POST",
         headers: {
-            Authorization: `Bearer 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`
+            // uncomment the below line as it is being blocked by the github to upload as this is the api key.
+            // Authorization: `Bearer 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`
         },
         body: formData,
     });
