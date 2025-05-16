@@ -1,0 +1,315 @@
+/* General Reset and Base Styles */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1e1e2f, #2c1b47, #3a3a5a); /* Enhanced dark gradient */
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Subtle Starry Effect for Background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Main Container with Glassmorphism and 3D Art */
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    animation: fadeIn 1s ease-out;
+    overflow: hidden;
+}
+
+/* 3D Glowing Sphere as Background Art */
+.container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(66, 133, 244, 0.5), transparent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) perspective(600px) rotateX(45deg) rotateY(45deg);
+    animation: rotate3D 10s infinite linear;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+/* Headings */
+h1 {
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.result h2 {
+    color: #ffffff;
+}
+
+/* Input Section */
+.input-section {
+    margin-bottom: 20px;
+}
+
+/* Input Choice (Radio Buttons) */
+.input-choice {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 10px;
+    justify-content: center;
+}
+
+.input-choice label {
+    color: #e0e0e0;
+    font-size: 16px;
+}
+
+/* Input Fields */
+.input-field {
+    display: flex;
+    gap: 10px;
+}
+
+input[type="text"],
+input[type="file"],
+select {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="file"]:focus,
+select:focus {
+    outline: none;
+    border-color: #60a5fa;
+    box-shadow: 0 0 8px rgba(66, 133, 244, 0.5);
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+/* Buttons with Glow-Pulse on Hover */
+button {
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #4b5eAA, #7f9cf5);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    box-shadow: 0 0 15px rgba(66, 133, 244, 0.7), 0 0 30px rgba(66, 133, 244, 0.4);
+    animation: glowPulse 1.5s infinite ease-in-out;
+}
+
+/* Loading Section */
+.loading {
+    text-align: center;
+}
+
+/* Custom Speech Wave Loader */
+.spinner {
+    display: none; /* Hide the original spinner */
+}
+
+.loading::before {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 50px;
+    position: relative;
+    margin: 20px auto;
+}
+
+.loading::before .wave {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #60a5fa;
+    border-radius: 50%;
+    animation: wave 1.2s infinite ease-in-out;
+}
+
+.loading::before .wave:nth-child(2) { animation-delay: 0.1s; }
+.loading::before .wave:nth-child(3) { animation-delay: 0.2s; }
+.loading::before .wave:nth-child(4) { animation-delay: 0.3s; }
+.loading::before .wave:nth-child(5) { animation-delay: 0.4s; }
+
+.loading:not(.hidden)::before {
+    content: '';
+    background: none;
+}
+
+.loading:not(.hidden)::before .wave {
+    display: inline-block;
+}
+
+/* Result Section */
+.result {
+    margin-top: 20px;
+    animation: scaleIn 0.5s ease-out;
+}
+
+pre {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 4px;
+    white-space: pre-wrap;
+    max-height: 300px;
+    overflow-y: auto;
+    color: #e0e0e0;
+}
+
+/* Action Section */
+.action-section {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+    align-items: center;
+}
+
+/* Translate Section */
+.translate-section {
+    display: flex;
+    gap: 10px;
+}
+
+/* Translated and Summarized Text */
+.translated-text,
+.summarized-text {
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 4px;
+    animation: scaleIn 0.5s ease-out;
+}
+
+.translated-text table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.translated-text th,
+.translated-text td {
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: left;
+    color: #e0e0e0;
+}
+
+.translated-text th {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.summarized-text h3 {
+    margin: 0 0 10px;
+    color: #ffffff;
+}
+
+.summarized-text p {
+    margin: 0;
+    color: #e0e0e0;
+}
+
+/* Error Section */
+.error {
+    color: #ff5555;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+/* Hidden Class */
+.hidden {
+    display: none;
+}
+
+/* Animations */
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        background: #60a5fa;
+    }
+    50% {
+        transform: translateY(-20px) scale(1.5);
+        background: #4b5eAA;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes glowPulse {
+    0%, 100% { box-shadow: 0 0 15px rgba(66, 133, 244, 0.7); }
+    50% { box-shadow: 0 0 25px rgba(66, 133, 244, 1); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+@keyframes rotate3D {
+    0% { transform: translate(-50%, -50%) perspective(600px) rotateX(45deg) rotateY(45deg) rotateZ(0deg); }
+    100% { transform: translate(-50%, -50%) perspective(600px) rotateX(45deg) rotateY(45deg) rotateZ(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .input-choice,
+    .action-section,
+    .translate-section {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+    }
+
+    input[type="text"],
+    input[type="file"],
+    select,
+    button {
+        font-size: 14px;
+    }
+}

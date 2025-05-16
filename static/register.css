@@ -1,0 +1,199 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', Arial, sans-serif;
+    background: linear-gradient(45deg, #2c003e 0%, #3a1c71 50%, #1f2a44 100%);
+    color: #ffffff;
+    overflow: hidden;
+    position: relative;
+}
+
+.container {
+    background: rgba(0, 0, 0, 0.3); 
+    backdrop-filter: blur(12px); 
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    animation: fadeIn 1s ease-out forwards;
+}
+
+h1 {
+    font-size: 2.2em;
+    margin-bottom: 20px;
+    color: #f3e8ff; 
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.alert {
+    background-color: #ef4444; 
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 0.9em;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-size: 1.1em;
+    color: #d8b4fe; 
+    text-align: left;
+}
+
+input[type="text"],
+input[type="email"] {
+    padding: 12px;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.02);
+    outline: none;
+}
+
+p {
+    font-size: 1em;
+    color: #e2e8f0; 
+    margin: 10px 0;
+}
+
+p strong {
+    color: #a5b4fc; 
+}
+
+button {
+    padding: 12px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #ffffff;
+    transition: transform 0.2s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+#startRecording {
+    background-color: #10b981; 
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+}
+
+#startRecording:hover {
+    background-color: #059669;
+    transform: translateY(-3px);
+}
+
+#startRecording:active {
+    animation: pulse 0.3s ease;
+}
+
+#stopRecording {
+    background-color: #ef4444; 
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+}
+
+#stopRecording:hover {
+    background-color: #b91c1c;
+    transform: translateY(-3px);
+}
+
+#stopRecording:active {
+    animation: pulse 0.3s ease;
+}
+
+button[type="submit"] {
+    background-color: #6366f1; 
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+button[type="submit"]:hover {
+    background-color: #4f46e5;
+    transform: translateY(-3px);
+}
+
+button:disabled {
+    background-color: #6b7280;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+a {
+    color: #a5b4fc; 
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #818cf8;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"%3E%3Cfilter id="bb"%3E%3CfeGaussianBlur in="SourceGraphic" stdDeviation="40" /%3E%3C/filter%3E%3Ccircle fill="%23ffffff" cx="400" cy="400" r="300" opacity="0.05" filter="url(%23bb)" /%3E%3C/svg%3E');
+    opacity: 0.2;
+    z-index: -1;
+    animation: float 20s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(50px, -30px); }
+    100% { transform: translate(0, 0); }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+        width: 95%;
+    }
+    h1 {
+        font-size: 1.8em;
+    }
+    label, p, button {
+        font-size: 0.9em;
+    }
+    input[type="text"],
+    input[type="email"] {
+        padding: 10px;
+    }
+    button {
+        padding: 10px 15px;
+    }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');

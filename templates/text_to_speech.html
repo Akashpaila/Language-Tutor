@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Speech Recognition</title>
+    <link rel="stylesheet" href="static/text_to_speech.css">
+</head>
+<body>
+<h1>Text to Speech Converter</h1> 
+<div class="container">
+    <div>
+        <label><input type="radio" name="inputType" value="text" checked> Enter Text</label>
+        <label><input type="radio" name="inputType" value="file"> Upload Text File</label>
+    </div>
+
+    <div id="textInput">
+        <input type="text" placeholder="Enter Text">
+    </div>
+
+    <div id="fileInputContainer" style="display: none;">
+        <input type="file" id="fileInput" accept=".txt">
+    </div>
+
+    <button id="speechBtn">Speech</button>
+    <button id="downloadBtn" style="display: none;">Download Audio</button>
+</div>
+
+<script src="static/text_to_speech.js"></script>
+</body>
+</html>

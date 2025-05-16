@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Try with Your Own Text</title>
+    <link rel="stylesheet" href="static/home.css">
+</head>
+<body>
+    <header>
+        <h1>Try with Your Own Text</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index_page') }}">Pronunciation Analysis</a></li>
+                <li><a href="{{ url_for('own_text') }}">Try with Your Own Text</a></li>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="input-section">
+            <h2>Upload or Enter Your Own Text</h2>
+            <form id="ownTextForm" enctype="multipart/form-data">
+                <label for="textInput">Enter Text:</label><br>
+                <textarea id="textInput" rows="5" cols="50" placeholder="Type your expected text here..."></textarea><br><br>
+
+                <label for="textFile">Upload Text File:</label>
+                <input type="file" id="textFile" accept=".txt"><br><br>
+
+                <label for="audioFile">Upload Audio File:</label>
+                <input type="file" id="audioFile" accept="audio/*"><br><br>
+
+                <button type="button" onclick="startRecording()">Start Recording</button>
+                <button type="button" onclick="stopRecording()">Stop Recording</button><br><br>
+
+                <button type="button" onclick="analyzeOwnText()">Analyze</button>
+            </form>
+
+            <div id="result" class="result-section"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Language Tutor | Built by Akash Paila</p>
+    </footer>
+
+    <script src="static/own_text.js"></script>
+</body>
+</html>

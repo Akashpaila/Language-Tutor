@@ -1,0 +1,3 @@
+Name,Email,Date,Time,Recognized Speech,WER,Mispronounced Words,WPS,Pace
+,,2025-03-12,12:12:41,never fear you shall see him again tomorrow george,0.2,"to, morrow",2.14,Medium Pace
+,,2025-03-12,12:12:53,never fear you shall see him again tomorrow george,0.2,"to, morrow",2.14,Medium Pace

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Voice Profile - Language Tutor</title>
+    <link rel="stylesheet" href="/static/register.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Update Voice Profile</h1>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        <form id="updateProfileForm" method="POST" enctype="multipart/form-data">
+            <label>Record Your Voice:</label>
+            <p>Please read the following text aloud: <strong>{{ random_text }}</strong></p>
+            <button type="button" id="startRecording">Start Recording</button>
+            <button type="button" id="stopRecording" disabled>Stop Recording</button>
+            <input type="file" id="audio" name="audio" accept="audio/*" style="display:none;">
+            <button type="submit">Update Profile</button>
+        </form>
+        <p><a href="{{ url_for('index') }}">Back to Home</a></p>
+    </div>
+    <script src="/static/recorder.js"></script>
+</body>
+</html>

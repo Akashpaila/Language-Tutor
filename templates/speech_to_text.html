@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech to Text Converter</title>
+    <link rel="stylesheet" href="static/speech_to_text.css">
+</head>
+<body>
+<h1>Speech to Text Converter</h1>
+
+<div class="container">
+    <!-- <div>
+        <label><input type="radio" name="inputType" value="record" checked> Record Audio</label>
+        <label><input type="radio" name="inputType" value="upload"> Upload Audio File</label>
+        <label><input type="radio" name="inputType" value="link"> Provide Audio Link</label>
+    </div> -->
+
+    <div id="recordContainer">
+        <button id="recordBtn">Start Recording</button>
+        <button id="stopBtn" style="display: none;">Stop Recording</button>
+    </div>
+
+    <div id="uploadContainer" style="display: none;">
+        <input type="file" id="fileInput" accept="audio/*">
+    </div>
+
+    <div id="linkContainer" style="display: none;">
+        <input type="text" id="audioLink" placeholder="Enter Audio URL">
+    </div>
+
+    <button id="convertBtn">Convert to Text</button>
+
+    <h2>Transcribed Text</h2>
+    <textarea id="transcribedText" readonly></textarea>
+
+    <button id="downloadBtn" style="display: none;">Download Text</button>
+</div>
+
+<script src="static/speech_to_text.js"></script>
+</body>
+</html>

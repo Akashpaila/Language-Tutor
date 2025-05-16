@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech Analysis</title>
+    <link rel="stylesheet" href="static/styles.css">
+    <style>
+        .hidden { display: none; }
+        .result { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Speech Pronunciation Analysis</h1>
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" placeholder="Enter your name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" placeholder="Enter your email" required>
+
+    <br><br>
+
+    <h3>Select Difficulty Level:</h3><br>
+    <input type="radio" name="difficulty" id="beginner" value="beginner"> Beginner (10 words)
+    <input type="radio" name="difficulty" id="intermediate" value="intermediate"> Intermediate (25 words)
+    <input type="radio" name="difficulty" id="advanced" value="advanced"> Advanced (Custom word count)
+    <input type="radio" name="difficulty" id="custom" value="custom"> Custom Text
+
+    <br><br>
+
+    <div id="customTextArea" class="hidden">
+        <label for="referenceText">Enter Reference Text:</label>
+        <textarea id="referenceText" rows="4" cols="50" placeholder="Enter your reference text here..."></textarea><br>
+    </div>
+
+    <label for="wordCount">Enter Word Count:</label>
+    <input type="number" id="wordCount" min="1" value="10">
+    <button id="generateText">Generate Text</button>
+
+    <p><strong>Generated Text:</strong></p>
+    <p id="displayText"></p>
+
+    <button id="startRecord">Start Recording</button>
+    <button id="stopRecord" disabled>Stop Recording</button>
+    <button id="playAudio" disabled>Play Audio</button>
+    <button id="analyzeAudio" disabled>Analyze Speech</button>
+
+    <audio id="audioPlayer" controls></audio>
+
+    <div class="result">
+        <label for="modelSelect">Select Model to View Result:</label><br>
+        <select id="modelSelect">
+            <option value="google_raw">Google API (Raw)</option>
+            <option value="google_custom">Google API (Custom)</option>
+            <option value="vosk_raw">VOSK API (Raw)</option>
+            <option value="vosk_custom">VOSK API (Custom)</option>
+            <option value="whisper_raw">Whisper Model (Raw)</option>
+            <option value="whisper_custom">Whisper Model (Custom)</option>
+        </select><br>
+        <div id="resultDisplay"></div>
+    </div>
+
+    <script src="static/script.js"></script>
+</body>
+</html>

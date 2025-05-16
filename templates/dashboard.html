@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Language Tutor</title>
+    <link rel="stylesheet" href="/static/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Your Dashboard, {{ current_user.name }}!</h1>
+        <!-- <div class="nav-links">
+            <a href="{{ url_for('index') }}" class="nav-btn">Home</a>
+            <a href="{{ url_for('own_text') }}" class="nav-btn">Pronunciation Analysis</a>
+            <a href="{{ url_for('grammar_analysis') }}" class="nav-btn">Grammar Analysis</a>
+            <a href="{{ url_for('conversation_module') }}" class="nav-btn">Conversation Module</a>
+            <a href="{{ url_for('accent_learning') }}" class="nav-btn">Accent-based Learning</a>
+            <a href="{{ url_for('youtube_transcription') }}" class="nav-btn">YouTube Transcription</a>
+            <a href="{{ url_for('speech_to_text') }}" class="nav-btn">Speech to Text</a>
+            <a href="{{ url_for('text_to_speech') }}" class="nav-btn">Text to Speech</a>
+            <a href="{{ url_for('logout') }}" class="nav-btn logout">Logout</a>
+        </div> -->
+        <div class="history-section">
+            <h2>Your Activity History</h2>
+            <div class="filter-container">
+                <label for="feature-filter">Filter by Feature:</label>
+                <select id="feature-filter">
+                    <option value="all">All Features</option>
+                    <option value="pronunciation">Pronunciation Analysis</option>
+                    <option value="grammar">Grammar Analysis</option>
+                    <option value="conversation">Conversation Module</option>
+                    <option value="accent">Accent-based Learning</option>
+                    <option value="youtube">YouTube Transcription</option>
+                    <option value="speech_to_text">Speech to Text</option>
+                    <option value="text_to_speech">Text to Speech</option>
+                </select>
+            </div>
+            <div class="history-links">
+                <a href="{{ url_for('history_pronunciation') }}" class="history-btn">Pronunciation History</a>
+                <a href="{{ url_for('history_grammar') }}" class="history-btn">Grammar History</a>
+                <a href="{{ url_for('history_conversation') }}" class="history-btn">Conversation History</a>
+                <a href="{{ url_for('history_accent') }}" class="history-btn">Accent History</a>
+                <a href="{{ url_for('history_youtube') }}" class="history-btn">YouTube History</a>
+                <a href="{{ url_for('history_speech_to_text') }}" class="history-btn">Speech to Text History</a>
+                <a href="{{ url_for('history_text_to_speech') }}" class="history-btn">Text to Speech History</a>
+            </div>
+            <div id="history-container"></div>
+        </div>
+    </div>
+    <script src="/static/dashboard.js"></script>
+</body>
+</html>

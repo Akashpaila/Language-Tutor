@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Speech History - Language Tutor</title>
+    <link rel="stylesheet" href="/static/history_common.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Text to Speech History</h1>
+        <a href="{{ url_for('dashboard') }}" class="back-btn">Back to Dashboard</a>
+        <div id="history-container"></div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const historyContainer = document.getElementById('history-container');
+            fetch('/get_history', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ feature: 'text_to_speech' })
+            })
+            .then(response => response.json())
+            .then(data => {
+                historyContainer.innerHTML = '';
+                data.history.forEach(item => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'history-item';
+                    const detailsHtml = item.details.target_lang
+                        ? `<p><strong>Text:</strong> ${item.details.text}</p>
+                           <p><strong>Target Language:</strong> ${item.details.target_lang}</p>`
+                        : `<p><strong>Text:</strong> ${item.details.text}</p>
+                           <p><strong>Summary:</strong> ${item.details.summary}</p>`;
+                    itemDiv.innerHTML = `
+                        <p><strong>Date:</strong> ${new Date(item.timestamp).toLocaleString()}</p>
+                        ${detailsHtml}`;
+                    historyContainer.appendChild(itemDiv);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching history:', error);
+                historyContainer.innerHTML = '<p>Error loading history.</p>';
+            });
+        });
+    </script>
+</body>
+</html>

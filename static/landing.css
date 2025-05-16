@@ -1,0 +1,134 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', Arial, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #ffffff;
+    overflow: hidden;
+    position: relative;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(10px); 
+    border-radius: 15px;
+    padding: 40px;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: fadeIn 1.2s ease-out forwards;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #e2e8f0; 
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    animation: slideIn 1.5s ease-out forwards;
+}
+
+p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin: 0 0 20px;
+    color: #d1d5db; 
+    animation: fadeInText 1.8s ease-out forwards;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    font-size: 1.1em;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #ef4444; /* Matches logout button from home.css */
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:hover {
+    background-color: #b91c1c; 
+    transform: scale(1.05); 
+    box-shadow: 0 6px 20px rgba(239, 68, 68, 0.6);
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.4s ease;
+}
+
+.btn:hover::before {
+    left: 100%; 
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"%3E%3Cfilter id="bb"%3E%3CfeGaussianBlur in="SourceGraphic" stdDeviation="30" /%3E%3C/filter%3E%3Ccircle fill="%23ffffff" cx="200" cy="200" r="150" opacity="0.08" filter="url(%23bb)" /%3E%3Ccircle fill="%23ffffff" cx="600" cy="600" r="100" opacity="0.06" filter="url(%23bb)" /%3E%3C/svg%3E');
+    z-index: -1;
+    animation: floatParticles 25s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInText {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes floatParticles {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-50px, 40px) scale(1.05); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+        max-width: 90%;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    p {
+        font-size: 1em;
+    }
+    .btn {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');

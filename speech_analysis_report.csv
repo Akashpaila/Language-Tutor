@@ -1,0 +1,4 @@
+name,email,expected_text,recognized_text,wer,wps,pace,mispronounced_words,date_time,model_name
+Akash,akashpyla@gmail.com,SAINT PAUL IS A SAINT ONLY WITH EXTENUATING CIRCUMSTANCES YES,devar within a few miles of the village now,0.9,2.14,Medium Pace,"saint, paul, is, saint, only, with, extenuating, circumstances, yes","4/14/2025, 2:54:54 PM",google_raw
+Akash,akashpyla@gmail.com,YOU COULD GET HOME EASY TOO IT ISN'T VERY FAR,devar within a few months of the village now you could get home easy to it isn't very far,1.0,1.85,Medium Pace,too,"4/14/2025, 2:55:30 PM",google_raw
+Akash,akashpyla@gmail.com,YOU COULD GET HOME EASY TOO IT ISN'T VERY FAR,devar within a few months of the village now you could get home easy to it isn't very far,1.0,1.85,Medium Pace,too,"4/14/2025, 2:55:45 PM",google_raw

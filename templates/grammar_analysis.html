@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grammar Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='grammar.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Grammar & Spelling Checker</h1>
+        <button id="startBtn">🎙️ Start Recording</button>
+        <button id="stopBtn" disabled>⏹️ Stop Recording</button>
+        <p><strong>Transcribed Text:</strong></p>
+        <textarea id="transcript" rows="6" readonly></textarea>
+        <button id="checkGrammarBtn">🧠 Check Grammar</button>
+        <div id="grammarResult"></div>
+    </div>
+    <script src="{{ url_for('static', filename='grammar.js') }}"></script>
+</body>
+</html>

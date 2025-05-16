@@ -1,0 +1,358 @@
+/* 
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    margin: 0; 
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px; 
+}
+
+h1 {
+    color: #333;
+}
+
+button {
+    background: #007BFF;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+textarea, input[type="text"], input[type="email"], input[type="number"] {
+    width: 100%;
+    max-width: 300px; 
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#audioPlayer {
+    margin-top: 15px;
+    width: 100%;
+    max-width: 400px; 
+}
+
+.form-group {
+    margin-bottom: 20px; 
+}
+
+.result {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    text-align: left; 
+}
+
+.result-label {
+    font-weight: bold;
+    margin-top: 15px;
+    color: #333;
+}
+
+#resultDisplay {
+    margin-top: 10px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: #444;
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+select {
+    margin: 5px 0;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 300px;
+}
+
+p {
+    margin: 10px 0;
+    color: #666;
+}
+
+.hidden {
+    display: none;
+} */
+
+/* General Reset and Base Styles */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: linear-gradient(135deg, #1e1e2f, #2c1b47, #3a3a5a); /* Dark navy, midnight purple, charcoal gradient */
+    background-attachment: fixed;
+    margin: 0; 
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Subtle Starry Effect for Background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Main Container with Glassmorphism and 3D Art */
+.container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    max-width: 800px;
+    margin: 0 auto; /* Ensure centered alignment */
+    position: relative;
+    animation: fadeIn 1s ease-out;
+    overflow: hidden;
+}
+
+/* 3D Glowing Orb as Background Art */
+.container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(96, 165, 250, 0.5), transparent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) perspective(600px) rotateX(45deg) rotateY(45deg);
+    animation: rotate3D 10s infinite linear;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+/* Headings */
+h1 {
+    color: #e2e8f0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Buttons with Glow on Hover */
+button {
+    background: linear-gradient(45deg, #4b5eAA, #7f9cf5);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+button:hover:not(:disabled) {
+    box-shadow: 0 0 15px rgba(96, 165, 250, 0.7), 0 0 30px rgba(96, 165, 250, 0.4);
+    transform: scale(1.05);
+}
+
+button:disabled {
+    background: rgba(255, 255, 255, 0.2);
+    cursor: not-allowed;
+}
+
+/* Form Elements */
+textarea, 
+input[type="text"], 
+input[type="email"], 
+input[type="number"] {
+    width: 100%;
+    max-width: 300px; 
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #e2e8f0;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #60a5fa;
+    box-shadow: 0 0 8px rgba(96, 165, 250, 0.5);
+}
+
+/* Audio Player with Pulse Animation */
+#audioPlayer {
+    margin-top: 15px;
+    width: 100%;
+    max-width: 400px; 
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+#audioPlayer:not(:disabled) {
+    animation: pulse 2s infinite ease-in-out;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 20px; 
+}
+
+/* Result Section */
+.result {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    text-align: left; 
+}
+
+/* Result Label */
+.result-label {
+    font-weight: bold;
+    margin-top: 15px;
+    color: #e2e8f0;
+}
+
+/* Result Display */
+#resultDisplay {
+    margin-top: 10px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: #e2e8f0;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+/* Select Dropdown */
+select {
+    margin: 5px 0;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    width: 100%;
+    max-width: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #e2e8f0;
+}
+
+select:focus {
+    outline: none;
+    border-color: #60a5fa;
+    box-shadow: 0 0 8px rgba(96, 165, 250, 0.5);
+}
+
+/* Paragraphs */
+p {
+    margin: 10px 0;
+    color: #a0aec0;
+}
+
+/* Hidden Class */
+.hidden {
+    display: none;
+}
+
+/* Loading Animation (Speech Wave) */
+.loader {
+    display: none;
+    width: 100px;
+    height: 50px;
+    position: relative;
+    margin: 20px auto;
+}
+
+.loader .wave {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #60a5fa;
+    border-radius: 50%;
+    animation: wave 1.2s infinite ease-in-out;
+}
+
+.loader .wave:nth-child(2) { animation-delay: 0.1s; }
+.loader .wave:nth-child(3) { animation-delay: 0.2s; }
+.loader .wave:nth-child(4) { animation-delay: 0.3s; }
+.loader .wave:nth-child(5) { animation-delay: 0.4s; }
+
+/* Animations */
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        background: #60a5fa;
+    }
+    50% {
+        transform: translateY(-20px) scale(1.5);
+        background: #4b5eAA;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+@keyframes rotate3D {
+    0% { transform: translate(-50%, -50%) perspective(600px) rotateX(45deg) rotateY(45deg) rotateZ(0deg); }
+    100% { transform: translate(-50%, -50%) perspective(600px) rotateX(45deg) rotateY(45deg) rotateZ(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    input, textarea, select, button {
+        max-width: 100%;
+    }
+
+    .result {
+        padding: 15px;
+    }
+}
