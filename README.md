@@ -79,7 +79,7 @@ If you want to inspect the database  then run
 
 [Submitted Research Paper](https://github.com/Akashpaila/Research-Paper/blob/main/paper.pdf)
 
-[Thesis of this project](https://github.com/Akashpaila/Major-Thesis)
+[Thesis of this project](https://github.com/Akashpaila/Major-Thesis/blob/main/Akash_Major_Thesis.pdf)
 ## Contributing
 
 Contributions are always welcome!
